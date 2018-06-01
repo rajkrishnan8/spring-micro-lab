@@ -19,4 +19,8 @@
 /target/
 **/target/
 
+/config-repo
+/config-repo/
+**/config-repo/
+
 .DS_Store
