@@ -6,4 +6,4 @@ spring:
       server:
         git:
           uri: https://github.com/rajkrishnan8/spmia-config-repo/
-          searchPaths: licensingservice, organizationservice
+          searchPaths: licensingservice

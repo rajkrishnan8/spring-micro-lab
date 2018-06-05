@@ -1,10 +1,28 @@
 package com.tripura.licenses.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="licenses")
 public class License {
+	@Id
+	@Column(name="license_id", nullable=false)
 	private String licenseId;
+
+	@Column(name="license_type", nullable=false)
 	private String licenseType;
+
+	@Column(name="product_name", nullable=false)
 	private String productName;
+
+	@Column(name="organization_id", nullable=false)
 	private String organizationId;
+
+	@Column(name="comment")
+	private String comment;
 
 	public String getLicenseId() {
 		return licenseId;
@@ -38,6 +56,14 @@ public class License {
 		this.organizationId = organizationId;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
 	public License withLicenseId(String licenseId) {
 		setLicenseId(licenseId);
 		return this;
@@ -55,6 +81,11 @@ public class License {
 
 	public License withOrganizationId(String organizationId) {
 		setOrganizationId(organizationId);
+		return this;
+	}
+
+	public License withComment(String comment) {
+		setComment(comment);
 		return this;
 	}
 }
