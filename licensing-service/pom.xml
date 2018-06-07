@@ -40,7 +40,7 @@
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
-</dependencyManagement>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -73,7 +73,17 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-client</artifactId>
 		</dependency>
+
+		<!-- Add RSA jars as part of encryption of config data in chapter 3 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-rsa</artifactId>
+		</dependency>
 	</dependencies>
+
+	<properties>
+	    <java.version>1.8</java.version>
+	</properties>
 
 	<build>
 		<plugins>
