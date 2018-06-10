@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XML-Schema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tripura</groupId>
-	<artifactId>licensing-service</artifactId>
+	<artifactId>organization-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Eagle Eye Licensing Service</name>
-	<description>Licensing Service</description>
+	<name>Organization Service</name>
+	<description>Organization Service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -52,6 +51,16 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
+		<!-- Add Spring Cloud Config Client as part of chapter 3 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+		</dependency>
+
 		<!-- Add JPA dependencies as part of chapter 3 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,36 +72,17 @@
 			<version>9.3-1100-jdbc41</version>
 		</dependency>
 
-		<!-- Add Spring Cloud Config Client as part of chapter 3 -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
-		</dependency>
-
 		<!-- Add RSA jars as part of encryption of config data in chapter 3 -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-rsa</artifactId>
 		</dependency>
 
-		<!-- Add eureka and ribbon dependencies as part of chapter 4 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-feign</artifactId>
-		</dependency>
 	</dependencies>
-
-	<properties>
-	    <java.version>1.8</java.version>
-	</properties>
 
 	<build>
 		<plugins>

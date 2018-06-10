@@ -1,0 +1,10 @@
+server:
+  port: 8100
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8100/eureka
+  server:
+    waitTimeInMsWhenSyncEmpty: 5
