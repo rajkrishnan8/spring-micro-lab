@@ -1,15 +1,18 @@
 package com.tripura.licenses.services;
 
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tripura.licenses.clients.OrganizationDiscoveryClient;
+import com.tripura.licenses.clients.OrganizationFeignClient;
+import com.tripura.licenses.clients.OrganizationRestTemplateClient;
 import com.tripura.licenses.config.ServiceConfig;
 import com.tripura.licenses.model.License;
 import com.tripura.licenses.model.Organization;
 import com.tripura.licenses.repository.LicenseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.tripura.licenses.clients.OrganizationDiscoveryClient;
-
-import java.util.List;
-import java.util.UUID;
 
 @Service
 public class LicenseService {
@@ -22,6 +25,12 @@ public class LicenseService {
 
 	@Autowired
 	private OrganizationDiscoveryClient organizationDiscoveryClient;
+	
+	@Autowired
+	private OrganizationRestTemplateClient organizationRestTemplateClient;
+	
+	@Autowired
+	private OrganizationFeignClient organizationFeignClient;
 
 	public License getLicense(String organizationId, String licenseId, String clientType) {
 		License license = licenseRepository.findByOrganizationIdAndId(organizationId, licenseId);
@@ -45,8 +54,11 @@ public class LicenseService {
 
 		switch (clientType) {
 			case "feign":
+				organization = organizationFeignClient.getOrganization(organizationId);
 				break;
 			case "rest":
+				System.out.println("I am using the rest template client.");
+				organization = organizationRestTemplateClient.getOrganization(organizationId);
 				break;
 			case "discovery":
 			default:
